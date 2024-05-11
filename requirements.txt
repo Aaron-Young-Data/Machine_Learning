@@ -1,0 +1,8 @@
+SQLAlchemy
+pandas
+tensorflow
+notebook
+pyodbc
+mysql-connector-python
+python-dotenv
+matplotlib
