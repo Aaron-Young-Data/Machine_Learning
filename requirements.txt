@@ -6,3 +6,5 @@ pyodbc
 mysql-connector-python
 python-dotenv
 matplotlib
+seaborn
+pydot
