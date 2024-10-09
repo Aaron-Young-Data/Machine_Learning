@@ -25,7 +25,6 @@ class MySQLConnection:
     def run_query(self, query):
         try:
             df = pd.read_sql(query, self.conn)
-            self.conn.close()
         except pyodbc.ProgrammingError as error:
             print(f'Warning: \n {error}')
         return df
@@ -33,8 +32,14 @@ class MySQLConnection:
     def run_query_no_output(self, query):
         try:
             self.cursor.execute(query)
-            self.cursor.close()
-            self.cursor_conn.close()
         except pyodbc.ProgrammingError as error:
             print(f'Warning: \n {error}')
         return None
+
+    def close_connection(self):
+        try:
+            self.cursor.close()
+            self.cursor_conn.close()
+        except:
+            self.cursor.close()
+
